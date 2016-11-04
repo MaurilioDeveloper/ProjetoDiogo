@@ -17,9 +17,10 @@ namespace LojaPc.Controllers
         [Route("Usuario/{Nome}/{Senha}")]
         public IHttpActionResult GetUsuario(string Nome, string Senha)
         {
-           Usuario u = ct.Usuarios.FirstOrDefault(x => x.UsuarioNome.Equals(Nome) && x.UsuarioSenha.Equals(Senha));
+            Usuario u = ct.Usuarios.FirstOrDefault(x => x.UsuarioNome.Equals(Nome) && x.UsuarioSenha.Equals(Senha));
 
-            if(u != null){
+            if (u != null)
+            {
                 dynamic a = new
                 {
 
@@ -35,7 +36,43 @@ namespace LojaPc.Controllers
 
         }
 
-        
+        [Route("UsuarioPorId/{id}")]
+        public IHttpActionResult GetUsuarioPorId(int id)
+        {
+
+            Usuario u = ct.Usuarios.Find(id);
+
+            if (u != null)
+            {
+                dynamic a = new
+                {
+                    Nome = u.UsuarioNome,
+                    nome = u.UsuarioEmail
+
+                };
+
+                return Ok(a);
+            }
+
+            return BadRequest();
+
+        }
+
+        [Route("ListarUsuarios")]
+
+        public dynamic GetListarUsuarios()
+        {
+            List<dynamic> usuarios = new List<dynamic>();
+            foreach (Usuario item in ct.Usuarios.ToList())
+            {
+               
+                
+            }
+
+            return BadRequest();
+        }
+
+
 
     }
 }
