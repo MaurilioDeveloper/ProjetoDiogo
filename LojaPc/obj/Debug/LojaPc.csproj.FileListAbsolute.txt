@@ -419,3 +419,4 @@ C:\LojaPc\LojaPc\obj\Debug\LojaPc.dll
 C:\LojaPc\LojaPc\obj\Debug\LojaPc.pdb
 C:\LojaPc\LojaPc\obj\Debug\LojaPc.Migrations.teste.resources
 C:\LojaPc\LojaPc\obj\Debug\LojaPc.Migrations.testee.resources
+C:\LojaPc\LojaPc\obj\Debug\LojaPc.Migrations.role.resources

@@ -28,11 +28,7 @@ namespace LojaPc.Migrations
             //    );
             //
 
-            context.Roles.AddOrUpdate(r => r.Nome,
-                new IdentityRole { Nome = "Admin" },
-                new IdentityRole { Nome = "Empresa" },
-                new IdentityRole { Nome = "Usuario" }
-                );
+           
         }
     }
 }
