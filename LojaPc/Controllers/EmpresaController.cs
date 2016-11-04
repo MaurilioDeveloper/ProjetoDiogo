@@ -14,11 +14,13 @@ namespace LojaPc.Controllers
     {
         private Context db = new Context();
 
+        [Authorize(Roles="Admin")]
         public ActionResult Index()
         {
             return View(db.Empresas.ToList());
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -33,6 +35,7 @@ namespace LojaPc.Controllers
             return View(empresa);
         }
 
+        
         public ActionResult Create()
         {
             return View();
@@ -52,6 +55,7 @@ namespace LojaPc.Controllers
             return View(empresa);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +83,7 @@ namespace LojaPc.Controllers
             return View(empresa);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
