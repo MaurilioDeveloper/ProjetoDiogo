@@ -10,10 +10,30 @@
 
     <div class="panel panel-default">
         <div class="panel-heading text-center">
-            <label style="font-size: larger;">Cadastrar Novo Usuário</label>
+            <label style="font-size: larger;">Cadastrar Nova Empresa</label>
         </div>
         <div class="panel-body">
             <div class="form-horizontal" style="margin-left: 25%;">
+
+                <div id="apresentacao col-lg-12">
+                    <!--<form method="post" action="index.html">-->
+                    <fieldset>
+                        <legend></legend>
+                        <div class="campos">
+                            <label for="txtEndereco">Endereço:</label>
+                            <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" />
+                            <input type="button" id="btnEndereco" name="btnEndereco" value="Mostrar no mapa" />
+                        </div>
+                        <div id="mapa"></div>
+                        <!--
+            <input type="submit" value="Enviar" name="btnEnviar" />
+            <input type="hidden" id="txtLatitude" name="txtLatitude" />
+            <input type="hidden" id="txtLongitude" name="txtLongitude" />
+                -->
+                    </fieldset>
+                    <!--</form>-->
+                    <br />
+                </div>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -34,7 +54,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Cnpj, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cnpj, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Cnpj, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Cnpj, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -42,7 +62,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Email, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -50,7 +70,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Telefone, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -59,52 +79,8 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Celular, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Uf, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Uf, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Uf, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cidade, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Bairro, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Endereco, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cep, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Cep, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -112,7 +88,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.InscricaoEstadual, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.InscricaoEstadual, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.InscricaoEstadual, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.InscricaoEstadual, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -120,7 +96,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.InscricaoMunicipal, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.InscricaoMunicipal, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.InscricaoMunicipal, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.InscricaoMunicipal, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -129,7 +105,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Status, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -138,8 +114,8 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Responsavel, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Responsavel, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Responsavel, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Responsavel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Responsavel, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
 
@@ -147,8 +123,8 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Url, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Url, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
 
@@ -156,7 +132,9 @@
                     <div class="col-lg-10 col-lg-offset-2" style="display: inline-flex;">
                         <div class="inner-addon left-addon" style="margin-right: 5px;">
                             <i class="fa fa-star-o" style="color:#ffffff"></i>
-                            <input type="submit" value="Cadastrar" class="btn btn-success" style="width:136px;" />
+                            <input type="submit" value="Cadastrar" class="btn btn-primary btn-sm" name="btnEnviar" style="width: 136px; height: 34px; font-size: 14px" />
+                            <input type="hidden" id="txtLatitude" name="txtLatitude" />
+                            <input type="hidden" id="txtLongitude" name="txtLongitude" />
                         </div>
                         <div class="inner-addon left-addon" style="margin-right: 5px;">
                             <i class="fa fa-reply" style="color:#ffffff"></i>
