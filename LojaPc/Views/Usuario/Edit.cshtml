@@ -1,0 +1,67 @@
+﻿@model LojaPc.Models.Usuario
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UsuarioId)
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            <label style="font-size: larger;">Cadastrar Novo Usuário</label>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="margin-left: 25%;">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UsuarioNome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UsuarioNome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UsuarioNome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UsuarioEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UsuarioEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UsuarioEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UsuarioSenha, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(model => model.UsuarioSenha, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.UsuarioSenha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UsuarioConfirmaSenha, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(model => model.UsuarioConfirmaSenha, new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.UsuarioConfirmaSenha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2" style="display: inline-flex;">
+                        <div class="inner-addon left-addon" style="margin-right: 5px;">
+                            <i class="fa fa-pencil-square-o" style="color:#ffffff"></i>
+                            <input type="submit" value="Editar" class="btn btn-warning" style="width:136px;" />
+                        </div>
+                        <div class="inner-addon left-addon">
+                            <i class="fa fa-reply" style="color:#ffffff"></i>
+                            @Html.ActionLink("Voltar", "Index", "Usuario", new { @class = "btn btn-info", @style = "width: 136px;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

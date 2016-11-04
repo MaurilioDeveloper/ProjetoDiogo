@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .font-system {
+            font-family: cursive;
+        }
+
+        .fa-desktop:before {
+            margin-right: 25px !important;
+            margin-left: 21px !important;
+            font-size: 23px !important;
+        }
+
+        .fa-file-text-o:before {
+            margin-right: 10px !important;
+        }
+
+        .fa-cogs:before {
+            margin-right: 10px !important;
+        }
+
+        .fa-laptop:before {
+            margin-right: 10px !important;
+        }
+
+        .fa-truck:before {
+            margin-right: 10px !important;
+            font-size: 18px !important;
+        }
+
+        .fa-wrench:before {
+            margin-right: 10px !important;
+            font-size: 18px !important;
+        }
+
+        .fa-user:before {
+            margin-right: 10px !important;
+            font-size: 18px !important;
+        }
+
+        .fa-building:before {
+            margin-right: 10px !important;
+            font-size: 18px !important;
+        }
+
+        .inner-addon {
+            position: relative;
+        }
+
+            .inner-addon .fa {
+                position: absolute;
+                padding: 10px;
+                pointer-events: none;
+            }
+
+        .left-addon .fa {
+            left: 0px;
+        }
+
+        .right-addon .fa {
+            right: 0px;
+        }
+
+        .left-addon input {
+            padding-left: 30px;
+        }
+
+        .right-addon input {
+            padding-right: 30px;
+        }
+    </style>
+</head>
+@if (LojaPc.Controllers.Validacao.GetSessionId() == null)
+{
+    Response.Redirect("~/Usuario/Login");
+}
+<body class="font-system" style="padding-top:0px;">
+    <div class="container" style="padding:0px;">
+        <div class="navbar navbar-default" style="margin-bottom:0px;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Fishing", "Index", "Empresa", null, new { @class = "navbar-brand fa fa-map", @style = "padding-left: 0px;font-size: 23px;" })
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    @if (LojaPc.Controllers.Validacao.GetSessionId() != null && LojaPc.Controllers.Validacao.GetSessionId().Equals("1"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="cadastros" role="button" aria-expanded="false"><i class="fa fa-file-text-o" style="font-size: 17px;" aria-hidden="true">Cadastrar</i><span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="cadastros">
+                                <li>@Html.ActionLink("Empresa", "Index", "Empresa", null, new { @class = "fa fa-building", @style = "font-size: 16px;" })</li>
+                            </ul>
+                        </li>
+                    }
+                    @*<li>@Html.ActionLink("Lista de Peças", "ListPeca", "Peca", null, new { @class = "navbar-brand fa fa-cogs", @style = "font-size: 17px;" })</li>*@
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.Label("Olá, " + HttpContext.Current.User.Identity.Name.ToUpper(), new { @class = "navbar-brand", @style = "font-size: 15px;padding-right: 0px;" })
+                        </li>
+                    }
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink(" ", "Logout", "Usuario", null, new { @class = "navbar-brand fa fa-sign-out", @style = "font-size: 30px" })
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding:0px;">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="~/Imagens/peixes.jpg" alt="Image" style="width:100%;height:350px;" />
+                    <div class=" carousel-caption jumbotron" style="padding:0px;">
+                        <h3 style="color: black;">Divulgação de seu comércio</h3>
+                        <p style="color: black;">Faça ofertas de seu produto de forma rápida e fácil para usuários perto da sua localização!</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="~/Imagens/peixes2.jpg" alt="Image" style="width:100%;height:350px;">
+                    <div class="carousel-caption jumbotron" style="padding:0px;">
+                        <h3 style="color:black;">Melhores locais para pesca</h3>
+                        <p style="color: black;">Compartilhe os melhores locais de pesca e vizualize os melhores avaliados!</p>
+                    </div>
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="container" style="padding:0px;">
+        @RenderBody()
+        <footer class="container text-center">
+            <p>&copy; @DateTime.Now.Year - FISHING</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

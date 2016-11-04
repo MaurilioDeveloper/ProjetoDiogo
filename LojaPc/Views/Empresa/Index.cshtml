@@ -1,0 +1,62 @@
+﻿@model IEnumerable<LojaPc.Models.Empresa>
+
+@{
+    ViewBag.Title = "Empresas";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+        <label style="font-size: larger;"><i class="fa fa-building"></i>Empresas</label>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead style="background-color: #F0F0F0; color: black;">
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">EMPRESA</th>
+                        <th class="text-center">E-MAIL</th>
+                        <th class="text-center">TELEFONE</th>
+                        <th class="text-center">EDITAR</th>
+                        <th class="text-center">DETALHES</th>
+                        <th class="text-center">DELETAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var e in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@Html.Label(e.EmpresaId.ToString())</td>
+                            <td class="text-center"><label>@e.Nome</label></td>
+                            <td class="text-center"><label>@e.Email</label></td>
+                            <td class="text-center"><label>@e.Telefone</label></td>
+                            <td class="text-center">
+                                <div class="inner-addon left-addon">
+                                    <i class="fa fa-pencil-square-o" style="color:#ffffff"></i>
+                                    @Html.ActionLink("Editar", "Edit", "Empresa", new { id = e.EmpresaId }, new { @class = "btn btn-warning", @style = "width:100%" })
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="inner-addon left-addon">
+                                    <i class="fa fa-commenting-o" style="color:#ffffff"></i>
+                                    @Html.ActionLink("Detalhes", "Details", "Empresa", new { id = e.EmpresaId }, new { @class = "btn btn-info", @style = "width:100%" })
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="inner-addon left-addon">
+                                    <i class="fa fa-times" style="color:#ffffff"></i>
+                                    @Html.ActionLink("Excluir", "Delete", "Empresa", new { id = e.EmpresaId }, new { @class = "btn btn-danger", @style = "width:100%" })
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="inner-addon left-addon">
+                <i class="fa fa-star-o" style="color: #ffffff; width: 200px; margin-left: 41%; margin-top: 1%; margin-bottom: 3%;"></i>
+                @Html.ActionLink("Cadastrar Novo Usuário", "Create", "Empresa", null, new { @class = "btn btn-success", @style = "width: 200px;margin-left: 41%;margin-top: 1%;margin-bottom: 3%;padding-right: 0px;" })
+            </div>
+
+        </div>
+    </div>
+</div>

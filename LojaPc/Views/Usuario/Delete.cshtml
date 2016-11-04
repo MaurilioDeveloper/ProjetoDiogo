@@ -1,0 +1,47 @@
+﻿@model LojaPc.Models.Usuario
+
+@{
+    ViewBag.Title = "Excluir";
+}
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+        <label style="font-size: larger;">Detalhes</label>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12" style="margin-left: 34%;width: 530px;">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.UsuarioNome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UsuarioNome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UsuarioEmail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UsuarioEmail)
+                </dd>
+            </dl>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2" style="margin-left: 37%; margin-right: 0px; padding-right: 0px; width: 292px; display: inline-flex;">
+                    <div class="inner-addon left-addon" style="margin-right: 5px;">
+                        <i class="fa fa-times" style="color:#ffffff"></i>
+                        <input type="submit" value="Excluir" class="btn btn-danger" style="width: 136px;" />
+                    </div>
+                    <div class="inner-addon left-addon">
+                        <i class="fa fa-reply" style="color:#ffffff"></i>
+                        @Html.ActionLink("Voltar", "Index", "Frete", new { @class = "btn btn-info", @style = "width: 136px;" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
