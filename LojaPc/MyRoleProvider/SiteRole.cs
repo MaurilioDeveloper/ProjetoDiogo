@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaPc.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -47,7 +48,10 @@ namespace LojaPc.MyRoleProvider
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            Context ctx = new Context();
+            string data = ctx.Usuarios.Where(x => x.UsuarioNome == username).FirstOrDefault().Role;
+            string[] result = { data };
+            return result;
         }
 
         public override string[] GetUsersInRole(string roleName)

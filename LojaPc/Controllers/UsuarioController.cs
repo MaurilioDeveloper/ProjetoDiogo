@@ -45,13 +45,13 @@ namespace LojaPc.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Usuarios.ToList());
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -77,6 +77,7 @@ namespace LojaPc.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.Role = "Usuario";
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,7 +86,7 @@ namespace LojaPc.Controllers
             return View(usuario);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -114,7 +115,7 @@ namespace LojaPc.Controllers
             return View(usuario);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
