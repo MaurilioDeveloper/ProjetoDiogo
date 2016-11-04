@@ -4,6 +4,7 @@ namespace LojaPc.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    
 
     internal sealed class Configuration : DbMigrationsConfiguration<LojaPc.Models.Context>
     {
@@ -26,6 +27,12 @@ namespace LojaPc.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Roles.AddOrUpdate(r => r.Nome,
+                new IdentityRole { Nome = "Admin" },
+                new IdentityRole { Nome = "Empresa" },
+                new IdentityRole { Nome = "Usuario" }
+                );
         }
     }
 }

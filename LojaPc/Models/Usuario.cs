@@ -32,6 +32,8 @@ namespace LojaPc.Models
         [NotMapped]
         public string UsuarioConfirmaSenha { get; set; }
 
+        public string Role { get; set; }
+
         public Usuario()
         {
 
