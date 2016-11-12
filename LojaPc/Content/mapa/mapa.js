@@ -35,7 +35,7 @@ $(document).ready(function () {
 		
 					$('#txtEndereco').val(results[0].formatted_address);
 					$('#txtLatitude').val(latitude);
-                                        $('#txtLongitude').val(longitude);
+                    $('#txtLongitude').val(longitude);
 		
 					var location = new google.maps.LatLng(latitude, longitude);
 					marker.setPosition(location);
@@ -91,14 +91,14 @@ $(document).ready(function () {
 		}
 	});
 	
-	$("form").submit(function(event) {
-		event.preventDefault();
+	//$("form").submit(function(event) {
+		//event.preventDefault();
 		
 		var endereco = $("#txtEndereco").val();
 		var latitude = $("#txtLatitude").val();
 		var longitude = $("#txtLongitude").val();
 		
-		alert("Endereço: " + endereco + "\nLatitude: " + latitude + "\nLongitude: " + longitude);
-	});
+		//alert("Endereço: " + endereco + "\nLatitude: " + latitude + "\nLongitude: " + longitude);
+	// }); 
 
 });
